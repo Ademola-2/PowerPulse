@@ -18,71 +18,122 @@
             </div>
             <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-600">
                 <a href="#features" class="hover:text-emerald-600 transition">Features</a>
-                <a href="#calculator-preview" class="hover:text-emerald-600 transition">Calculators</a>
-                <a href="#about" class="hover:text-emerald-600 transition">About</a>
+                <a href="#calculator" class="hover:text-emerald-600 transition">Calculator</a>
             </nav>
             <div>
-                <a href="#calculator-preview" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-sm">Get Started</a>
+                <a href="#calculator" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-sm">Launch Calculator</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <main class="flex-grow">
-        <section class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center">
+        <section class="max-w-6xl mx-auto px-6 py-16 text-center">
             <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Smart Energy Management</span>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight max-w-3xl mx-auto leading-tight">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight max-w-3xl mx-auto leading-tight">
                 Master Your Home Energy & <span class="text-emerald-600">Solar Needs</span>
             </h1>
-            <p class="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
+            <p class="mt-4 text-base md:text-lg text-slate-600 max-w-2xl mx-auto">
                 Calculate daily power consumption, audit your household appliances, and get precise solar inverter and battery recommendations instantly.
             </p>
-            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#calculator-preview" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-xl shadow-md transition">Launch Calculator ➔</a>
-                <a href="#features" class="bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 font-semibold px-6 py-3 rounded-xl transition">Explore Features</a>
-            </div>
         </section>
 
-        <!-- Feature Highlights -->
-        <section id="features" class="bg-white py-16 border-t border-slate-200">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center max-w-xl mx-auto mb-12">
-                    <h2 class="text-2xl font-bold text-slate-900">Built for Precision and Clarity</h2>
-                    <p class="text-slate-600 text-sm mt-2">Everything you need to plan your power requirements effectively.</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Feature 1 -->
-                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:shadow-lg transition">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">📊</div>
-                        <h3 class="font-bold text-lg text-slate-900">Load Profiling</h3>
-                        <p class="text-slate-600 text-sm mt-2">Input household appliances, wattage ratings, and daily run hours to see exact daily kWh totals.</p>
+        <!-- Interactive Calculator Section (Phase 2) -->
+        <section id="calculator" class="max-w-5xl mx-auto px-4 md:px-6 mb-20">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="bg-slate-900 text-white p-6 md:p-8 flex flex-col md:flex-row justify-between items-center">
+                    <div>
+                        <span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Phase 2 Active Module</span>
+                        <h2 class="text-2xl font-bold mt-1">Interactive Energy Load Calculator</h2>
+                        <p class="text-slate-400 text-sm mt-1">Add your appliances to calculate total energy consumption and recommended solar sizing.</p>
                     </div>
-                    <!-- Feature 2 -->
-                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:shadow-lg transition">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">🔋</div>
-                        <h3 class="font-bold text-lg text-slate-900">Solar Sizing</h3>
-                        <p class="text-slate-600 text-sm mt-2">Get automatic recommendations for battery bank capacity and inverter sizing based on your custom load.</p>
-                    </div>
-                    <!-- Feature 3 -->
-                    <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:shadow-lg transition">
-                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center font-bold text-xl mb-4">💾</div>
-                        <h3 class="font-bold text-lg text-slate-900">Cloud Storage</h3>
-                        <p class="text-slate-600 text-sm mt-2">Save your energy audit profiles, export summary reports, and access your calculations anytime.</p>
+                    <div class="mt-4 md:mt-0 bg-slate-800 border border-slate-700 px-4 py-2 rounded-xl text-center">
+                        <span class="text-xs text-slate-400 block">Total Daily Usage</span>
+                        <span id="header-total-kwh" class="text-emerald-400 font-bold text-lg">0.00 kWh</span>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Calculator Preview Section (Phase 2 Placeholder) -->
-        <section id="calculator-preview" class="max-w-4xl mx-auto px-6 py-16 text-center">
-            <div class="bg-slate-900 text-white p-8 md:p-12 rounded-3xl shadow-xl">
-                <span class="text-emerald-400 text-xs font-bold uppercase tracking-wider">Coming in Phase 2</span>
-                <h3 class="text-2xl md:text-3xl font-bold mt-2">Interactive Energy Calculator Engine</h3>
-                <p class="text-slate-400 text-sm mt-3 max-w-lg mx-auto">
-                    The calculator interface is currently being engineered. Once deployed, you will be able to add appliances and generate real-time power analytics here!
-                </p>
-                <div class="mt-6 inline-block bg-slate-800 border border-slate-700 text-slate-300 px-4 py-2 rounded-lg text-xs font-mono">
-                    Status: Phase 1 Homepage Deployed ✅
+                <div class="p-6 md:p-8 grid lg:grid-cols-3 gap-8">
+                    <!-- Left 2 Cols: Form & Appliance List -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <!-- Add Appliance Form -->
+                        <form id="appliance-form" class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
+                            <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wider">Add Appliance</h3>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Appliance Name</label>
+                                    <input type="text" id="name" placeholder="e.g. Ceiling Fan, TV" required class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Power Rating (Watts)</label>
+                                    <input type="number" id="watts" placeholder="e.g. 75" min="1" required class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Quantity</label>
+                                    <input type="number" id="qty" value="1" min="1" required class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Hours Used Per Day</label>
+                                    <input type="number" id="hours" value="5" min="0.1" max="24" step="0.1" required class="w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                </div>
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-lg text-sm transition shadow-sm">+ Add to Load List</button>
+                        </form>
+
+                        <!-- Added Appliances Table -->
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-sm uppercase tracking-wider mb-3">Load Inventory</h3>
+                            <div class="overflow-x-auto border border-slate-200 rounded-2xl">
+                                <table class="w-full text-left text-sm">
+                                    <thead class="bg-slate-100 text-slate-700 border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">Appliance</th>
+                                            <th class="p-3">Watts</th>
+                                            <th class="p-3">Qty</th>
+                                            <th class="p-3">Hrs/Day</th>
+                                            <th class="p-3">Wh/Day</th>
+                                            <th class="p-3 text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="appliance-table-body" class="divide-y divide-slate-200">
+                                        <tr id="empty-row">
+                                            <td colspan="6" class="p-6 text-center text-slate-400 italic">No appliances added yet. Add items above to begin estimation.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Col: Results & Recommendations -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between space-y-6">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-base mb-4 border-b border-slate-200 pb-2">System Sizing Summary</h3>
+                            
+                            <div class="space-y-4 text-sm">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-600">Total Connected Load:</span>
+                                    <span id="total-watts" class="font-bold text-slate-900">0 W</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-slate-600">Daily Energy Consumption:</span>
+                                    <span id="total-kwh" class="font-bold text-emerald-600">0.00 kWh</span>
+                                </div>
+                                <div class="pt-2 border-t border-slate-200">
+                                    <span class="block text-xs font-semibold text-slate-500 uppercase">Recommended Inverter Size</span>
+                                    <span id="rec-inverter" class="text-lg font-extrabold text-slate-900">0 kVA / kW</span>
+                                    <span class="block text-xs text-slate-500 mt-0.5">(Includes 25% safety headroom)</span>
+                                </div>
+                                <div class="pt-2 border-t border-slate-200">
+                                    <span class="block text-xs font-semibold text-slate-500 uppercase">Est. Battery Storage (12V @ 50% DoD)</span>
+                                    <span id="rec-battery" class="text-lg font-extrabold text-slate-900">0 Ah</span>
+                                    <span class="block text-xs text-slate-500 mt-0.5">Recommended usable capacity</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="clearAll()" class="w-full bg-white hover:bg-red-50 text-red-600 border border-red-200 font-semibold py-2 rounded-lg text-xs transition">Clear All Appliances</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -93,5 +144,101 @@
         <p>&copy; 2026 PowerPulse. All rights reserved. Built with Vanilla HTML, Tailwind CSS, & JavaScript.</p>
     </footer>
 
+    <!-- JavaScript Calculator Logic -->
+    <script>
+        let appliances = [];
+
+        const form = document.getElementById('appliance-form');
+        const tableBody = document.getElementById('appliance-table-body');
+        const totalWattsEl = document.getElementById('total-watts');
+        const totalKwhEl = document.getElementById('total-kwh');
+        const headerTotalKwhEl = document.getElementById('header-total-kwh');
+        const recInverterEl = document.getElementById('rec-inverter');
+        const recBatteryEl = document.getElementById('rec-battery');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const watts = parseFloat(document.getElementById('watts').value);
+            const qty = parseInt(document.getElementById('qty').value);
+            const hours = parseFloat(document.getElementById('hours').value);
+
+            const newItem = {
+                id: Date.now(),
+                name,
+                watts,
+                qty,
+                hours,
+                dailyWh: watts * qty * hours
+            };
+
+            appliances.push(newItem);
+            form.reset();
+            document.getElementById('qty').value = '1';
+            document.getElementById('hours').value = '5';
+            renderTable();
+        });
+
+        function deleteItem(id) {
+            appliances = appliances.filter(item => item.id !== id);
+            renderTable();
+        }
+
+        function clearAll() {
+            appliances = [];
+            renderTable();
+        }
+
+        function renderTable() {
+            tableBody.innerHTML = '';
+
+            if (appliances.length === 0) {
+                tableBody.innerHTML = `<tr id="empty-row"><td colspan="6" class="p-6 text-center text-slate-400 italic">No appliances added yet. Add items above to begin estimation.</td></tr>`;
+                totalWattsEl.textContent = '0 W';
+                totalKwhEl.textContent = '0.00 kWh';
+                headerTotalKwhEl.textContent = '0.00 kWh';
+                recInverterEl.textContent = '0 kVA / kW';
+                recBatteryEl.textContent = '0 Ah';
+                return;
+            }
+
+            let totalWatts = 0;
+            let totalWh = 0;
+
+            appliances.forEach(item => {
+                totalWatts += (item.watts * item.qty);
+                totalWh += item.dailyWh;
+
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50";
+                tr.innerHTML = `
+                    <td class="p-3 font-medium text-slate-900">${item.name}</td>
+                    <td class="p-3">${item.watts} W</td>
+                    <td class="p-3">${item.qty}</td>
+                    <td class="p-3">${item.hours} hrs</td>
+                    <td class="p-3 font-semibold text-slate-700">${item.dailyWh.toFixed(1)} Wh</td>
+                    <td class="p-3 text-center">
+                        <button onclick="deleteItem(${item.id})" class="text-red-500 hover:text-red-700 text-xs font-bold px-2 py-1 bg-red-50 hover:bg-red-100 rounded">Remove</button>
+                    </td>
+                `;
+                tableBody.appendChild(tr);
+            });
+
+            const totalKwh = totalWh / 1000;
+            totalWattsEl.textContent = `${totalWatts} W`;
+            totalKwhEl.textContent = `${totalKwh.toFixed(2)} kWh`;
+            headerTotalKwhEl.textContent = `${totalKwh.toFixed(2)} kWh`;
+
+            // Engineering Sizing Calculations
+            // Inverter: Total Watts * 1.25 safety factor, converted to kW/kVA
+            const inverterKw = (totalWatts * 1.25) / 1000;
+            recInverterEl.textContent = `${inverterKw.toFixed(2)} kVA / kW`;
+
+            // Battery Ah calculation: Total Wh / 12V system voltage / 0.5 (Depth of Discharge)
+            const batteryAh = totalWh / 12 / 0.5;
+            recBatteryEl.textContent = `${batteryAh.toFixed(0)} Ah (@ 12V)`;
+        }
+    </script>
 </body>
 </html>
