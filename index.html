@@ -374,6 +374,19 @@
             }
         });
 
+        // Escape untrusted text before placing it inside HTML markup.
+        window.escapeHTML = function(value) {
+            return String(value ?? '').replace(/[&<>"']/g, function(char) {
+                return {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;'
+                }[char];
+            });
+        };
+
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
@@ -506,10 +519,11 @@
             const navContainer = document.getElementById('auth-nav-container');
             if (user) {
                 const displayName = user.displayName || user.email.split('@')[0];
+                const safeDisplayName = window.escapeHTML(displayName);
                 navContainer.innerHTML = `
                     <div class="flex items-center space-x-2 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200">
-                        <div class="w-6 h-6 bg-emerald-600 text-white rounded-lg flex items-center justify-center font-bold text-xs">${displayName.charAt(0).toUpperCase()}</div>
-                        <span class="text-xs font-bold text-slate-800 hidden sm:inline">Hi, ${displayName}</span>
+                        <div class="w-6 h-6 bg-emerald-600 text-white rounded-lg flex items-center justify-center font-bold text-xs">${window.escapeHTML(displayName.charAt(0).toUpperCase())}</div>
+                        <span class="text-xs font-bold text-slate-800 hidden sm:inline">Hi, ${safeDisplayName}</span>
                     </div>
                     <button onclick="logoutUser()" class="bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 px-3.5 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-1">
                         <span>Log Out</span>
@@ -589,14 +603,29 @@
 
                     const card = document.createElement('div');
                     card.className = "bg-slate-50 border border-slate-200 p-4 rounded-2xl flex justify-between items-center";
-                    card.innerHTML = `
-                        <div>
-                            <span class="text-xs font-semibold text-emerald-600 block">${dateStr}</span>
-                            <h4 class="font-bold text-slate-900 text-sm">${totalItems} Appliance(s)</h4>
-                            <span class="text-xs text-slate-500">Total: ${totalKwh} kWh/day</span>
-                        </div>
-                        <button onclick='loadProfileData(${JSON.stringify(data.appliances)})' class="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2 rounded-xl text-xs font-semibold transition shadow-sm">Load Audit</button>
-                    `;
+
+                    const details = document.createElement('div');
+                    const dateLabel = document.createElement('span');
+                    dateLabel.className = "text-xs font-semibold text-emerald-600 block";
+                    dateLabel.textContent = dateStr;
+
+                    const applianceLabel = document.createElement('h4');
+                    applianceLabel.className = "font-bold text-slate-900 text-sm";
+                    applianceLabel.textContent = `${totalItems} Appliance(s)`;
+
+                    const energyLabel = document.createElement('span');
+                    energyLabel.className = "text-xs text-slate-500";
+                    energyLabel.textContent = `Total: ${totalKwh} kWh/day`;
+
+                    details.append(dateLabel, applianceLabel, energyLabel);
+
+                    const loadButton = document.createElement('button');
+                    loadButton.type = 'button';
+                    loadButton.className = "bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2 rounded-xl text-xs font-semibold transition shadow-sm";
+                    loadButton.textContent = 'Load Audit';
+                    loadButton.addEventListener('click', () => window.loadProfileData(data.appliances));
+
+                    card.append(details, loadButton);
                     listEl.appendChild(card);
                 });
             } catch (error) {
@@ -694,7 +723,7 @@
                 tr.innerHTML = `
                     <td class="p-4 font-semibold text-slate-900 flex items-center space-x-2">
                         <span>🔌</span>
-                        <span>${item.name}</span>
+                        <span>${window.escapeHTML(item.name)}</span>
                     </td>
                     <td class="p-4 text-slate-700">${item.watts} W</td>
                     <td class="p-4 text-slate-700">${item.qty}</td>
