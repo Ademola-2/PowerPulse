@@ -629,7 +629,11 @@
                     listEl.appendChild(card);
                 });
             } catch (error) {
-                listEl.innerHTML = `<p class="text-red-500 text-xs text-center py-6">Error loading profiles: ${error.message}</p>`;
+                listEl.replaceChildren();
+                const errorMessage = document.createElement("p");
+                errorMessage.className = "text-red-500 text-xs text-center py-6";
+                errorMessage.textContent = `Error loading profiles: ${error?.message || "Please try again."}`;
+                listEl.appendChild(errorMessage);
             }
         }
 
