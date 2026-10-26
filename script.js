@@ -86,7 +86,6 @@ import { getFirestore, collection, addDoc, query, where, getDocs, serverTimestam
             }
         }
     
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 const firebaseConfig = {
             apiKey: "AIzaSyB3uSx_XIxNKbVVgZwEhgUCvkeja-rG_GI",
             authDomain: "powerpulse-71b6f.firebaseapp.com",
